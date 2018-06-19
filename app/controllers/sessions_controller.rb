@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
   end
 	
 	def create 
-		user=User.find_by(email:params[:session][:email].downcase)
+		user=User.find_by(login_id:params[:session][:email].downcase)
 		if user && user.authenticate(params[:session][:password])
 			#ユーザログイン後にユーザ情報のページにリダイレクト
 
@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 			#redirect_to user_url(user)
 		else 
 			#エラーメッセージの作成
-			flash.now[:danger]='Inavlid email/password combination'
+			flash.now[:danger]='IDかぱすわーどがちがうよ'
 			render 'new'
 		end
 	end
