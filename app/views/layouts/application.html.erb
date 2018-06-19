@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= full_title(yield(:title)) %></title>
+	 <%= render 'layouts/head' %>	
+		<%= render 'layouts/shim' %>
+	
+  </head>
+
+  <body>
+
+			<%= render 'layouts/header' %>	
+
+			<div class="container">
+				<% flash.each do|message_type,message| %>
+				<%#message-typeは文字列になるから、動的にクラスを指定できる %>
+				 <div class="alert alert-<%=message_type%>"><%=message%></div>
+
+				<!-- <%= content_tag(:div,message:"class:alert alert-#{message_type}") %> -->
+				<%end %>
+			</div>
+		   <%= yield %>
+			 <%=render 'layouts/footer' %>
+			 <%= debug(params) if Rails.env.development? %>
+  </body>
+</html>
