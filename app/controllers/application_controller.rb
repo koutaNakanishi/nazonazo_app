@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 			unless logged_in?
 				store_location#getでアクセスしようとしたアドレスを記憶
 #				debugger
-				flash[:danger]="Please log in."
+				flash[:danger]="まずはログインしてね"
 				redirect_to login_url
 			end
 		end
