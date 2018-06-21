@@ -1,15 +1,15 @@
 			<%=form_for(@user) do |f| %>
-				<%= render 'shared/error_messages',object: @user %>
-				<%=	f.label:name %>
+				<%= render 'shared/error_messages',object: f.object %>
+				<%=	f.label:おなまえ %>
 				<%=	f.text_field :name,class: 'form-control'%>
 
-				<%=	f.label:email%>
-				<%=	f.text_field :email,class: 'form-control'%>
+				<%=	f.label:ID%>
+				<%=	f.text_field :login_id,class: 'form-control'%>
 
-				<%=	f.label:password%>
+				<%=	f.label:パスワード%>
 				<%=	f.password_field:password,class: 'form-control'%>
 
-				<%=	f.label:password_confirmation,"Confirmation"%>
+				<%=	f.label:"パスワード(もう一度)"%>
 				<%=	f.password_field:password_confirmation,class: 'form-control'%>
 
 				<%= f.submit yield(:button_text),class:"btn btn-primary" %>

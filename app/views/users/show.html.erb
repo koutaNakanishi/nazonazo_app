@@ -1,17 +1,29 @@
 
 <% provide(:title,@user.name) %>
+<h1>
+マイプロフィール
+</h1>
+
 <div class="row">
 	<aside class="col-md-4">
 		<section class="user_info">
 			<h1>
 				<%= gravatar_for @user,{size:90} %>
-				usename:<%= @user.name %><br>
-				email:<%=@user.email %><br>
-				created_time:<%=@user.created_at %><br>
-				updated_time:<%=@user.updated_at %><br>
-				now:<%= Time.now %><br>
+				おなまえ:<%= @user.name %><br>
+				ID:<%=@user.login_id %><br>
+				今の時間:<%= Time.now %><br>
 			</h1>
 		</section>
 	</aside>
+
+	<div class="col-md-8 ">
+		<% if @user.nazos.any? %>
+			<h3>投稿したなぞなぞ: (<%= @user.nazos.count %>)個</h3>
+				<ol class="nazos">
+					<%=render @nazos %>
+				</ol>
+				<%= will_paginate @nazos %>
+			<%end %>
+		</div>
 </div>
 

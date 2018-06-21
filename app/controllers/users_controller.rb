@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
 	def show
 		@user=User.find(params[:id])
-
+		@nazos=@user.nazos.paginate(page: params[:page])
 	end
 
 	def edit
@@ -58,18 +58,9 @@ class UsersController < ApplicationController
 	private#ネットワーク経由で実行できない（攻撃される危険性が少ない？）ヘルパー
 		def user_params
 
-			params.require(:user).permit(:name,:email,:password,:password_confirmation)
+			params.require(:user).permit(:name,:login_id,:password,:password_confirmation)
 		end 
 		#beforeアクション
-		def	logged_in_user
-			unless logged_in?
-				store_location#getでアクセスしようとしたアドレスを記憶
-#				debugger
-				flash[:danger]="Please log in."
-				redirect_to login_url
-			end
-		end
-
 
 		def correct_user
 			@user=User.find(params[:id])

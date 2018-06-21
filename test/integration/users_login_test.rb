@@ -10,7 +10,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 	end
 	test "login with valid information followed by logout" do
 		get login_path
-		post login_path,params:{session: {email: @user.email,password:'password'} }
+		post login_path,params:{session: {login_id: @user.login_id,password:'password'} }
 		assert is_logged_in?
 		assert_redirected_to @user#ユーザページに飛んだか
 		follow_redirect!#実際↑に従って飛ぶ
@@ -30,7 +30,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 	test "login with invalid information" do
 		get login_path#/login
 		assert_template 'sessions/new'#sessions/newにいるか確認(フォームがある所)
-		post login_path params:{session: {email: "",password: ""} }#ポストする(create)
+		post login_path params:{session: {login_id: "",password: ""} }#ポストする(create)
 		assert_template 'sessions/new'#sessions/newにいるか確認
 		assert_not flash.empty?#flashが空ならエラー
 		get root_path#/へ移動
