@@ -1,0 +1,24 @@
+<li id="nazo-<%=nazo.id %>" >
+
+	<%= link_to gravatar_for(nazo.user,size:50),nazo.user %>
+	<span class="user"><%= link_to nazo.user.name, nazo.user %></span>
+
+
+	<span class="content">
+
+		<table border="0"><tr>
+		<td>難しさ:</td>
+		<% nazo.difficulty.times do%>
+				<td><%= image_tag 'star.png', alt: '星'  %> </td>
+			<% end %>
+		</tr></table>
+	</span>
+
+
+	<span class="content"><%=nazo.content %></span>
+	<span class="content"><%=image_tag 'hart_empty.png',alt:'愛'%></span>
+	<span class="content"><%=link_to "このなぞなぞに挑戦!!",'#',class:"btn btn-primary"%></span>
+	<span class="timestamp">
+		<%=time_ago_in_words(nazo.created_at)%>に投稿
+	</span>
+</li>

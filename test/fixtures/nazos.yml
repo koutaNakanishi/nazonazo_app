@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyText
+  answer: MyString
+  difficulty: 1
+  good_num: 1
+  fight_num: 1
+  solved_num: 1
+  user: one
+
+two:
+  content: MyText
+  answer: MyString
+  difficulty: 1
+  good_num: 1
+  fight_num: 1
+  solved_num: 1
+  user: two
