@@ -1,0 +1,27 @@
+<% if logged_in? %>
+	<% if nazo.like_user current_user.id %>
+		<%= button_to nazo_like_path(nazo),method: :delete, id: "like-button",remote: true do %>
+		<%# button_to nazo_like_path(like,nazo_id: nazo.id),method: :delete,id: "like-button",remote: true do %>
+			<%= image_tag 'hart.png'  %>
+
+			<span>
+				<%= nazo.good_num %>
+			</span>
+	<% end %>
+
+	<% else %>
+		<%= button_to nazo_likes_path(nazo),id: "like-button",remote: true do %>
+		<%=image_tag "hart_empty.png" %>
+
+				<span>
+					<%= nazo.good_num %>
+				</span>
+	<% end %>
+<% end %>
+
+<% else %>
+	<%= image_tag("hart_empty.png") %>
+		<span>
+			<%= nazo.good_num%>
+		</span>
+<% end %>

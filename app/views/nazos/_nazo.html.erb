@@ -16,7 +16,7 @@
 
 
 	<span class="content"><%=nazo.content %></span>
-	<span class="content"><%=image_tag 'hart_empty.png',alt:'愛'%></span>
+	<span class="content"><%=render'shared/like',{nazo: nazo}%></span>
 	<span class="content"><%=link_to "このなぞなぞに挑戦!!",'#',class:"btn btn-primary"%></span>
 	<span class="timestamp">
 		<%=time_ago_in_words(nazo.created_at)%>に投稿
