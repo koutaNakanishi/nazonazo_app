@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
 	get '/about',to:'static_pages#about'
 
+	get '/mypage',to:'static_pages#mypage'
+
 	get '/contact',to:'static_pages#contact'
 
 	get '/signup',to:'users#new'
