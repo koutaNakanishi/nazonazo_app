@@ -22,8 +22,9 @@ class User < ApplicationRecord
 	end
 
 	def feed
-		Nazo.order('created_at').where("user_id not ?",nil)
-		#	Nazo.all
+		Nazo.where("user_id not ?",nil).reorder(:good_num)
+#		Nazo.order('likes.count')
+		#	nazos.all
 		#nazos.all
 	end
 
