@@ -22,7 +22,12 @@ class User < ApplicationRecord
 	end
 
 	def feed
-		nazos.where("user_id=?",id)
+		Nazo.order('created_at').where("user_id not ?",nil)
+		#	Nazo.all
+		#nazos.all
 	end
 
+	def feed_new
+		
+	end 
 end

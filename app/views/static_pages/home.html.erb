@@ -6,6 +6,15 @@
 	<h1>新着|人気|お気に入り</h1>
 	<h2>（ここに、謎一覧を表示したい)</h2>
 
+	<div class="container">	
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<h3>なぞなぞ一覧</h3>
+				<%= render 'shared/feed' %>
+			</div>
+	</div>
+</div>
+
 <% else %>
 
 	<h1>ようこそ、なぞなぞキングへ!</h1>
@@ -16,6 +25,5 @@
 	<%=link_to "まずはアカウントを作ってね!",signup_path,class:"btn btn-lg btn-primary" %>
 </div>
 
-<% end %>
 
-<br>
+<% end %>
