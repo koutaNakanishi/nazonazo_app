@@ -1,0 +1,14 @@
+<%= form_for(@nazo) do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+	<div class="field">
+		<%= f.label:問題文 %>
+		<%= f.text_area :content,placeholder: "問題文を入れてね" %>
+
+		<%=f.label:答え%>
+		<%= f.text_area :answer,placeholder: "答えを入れてね"%>
+		
+		<%=f.label:"難易度"%>
+		<%=f.number_field :difficulty %>
+	</div>
+	<%=f.submit "投稿!!",class: "btn btn-primary" %>
+<% end %>
