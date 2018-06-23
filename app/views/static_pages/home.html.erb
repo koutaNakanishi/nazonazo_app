@@ -6,9 +6,9 @@
 	<h1>
 		<nav class="navbar navbar-inverse ">
 			<ul class="nav navbar-nav">
-					<li class="active"><%=link_to '新着','#'%></li>
-					<li><%=link_to '人気順','#' %></li>
-					<li><%=link_to 'お気に入り','#' %></li>
+					<li class="<%="active" if current_page?(root_path)%>"><%=link_to '新着',root_path%></li>
+					<li class="<%="active" if current_page?(fave_path)%>"><%=link_to '人気順',fave_path %></li>
+					<li class="<%="active" if current_page?(myfave_path)%>"><%=link_to 'お気に入り',myfave_path%></li>
 			</ul>
 		</nav>
 	</h1>

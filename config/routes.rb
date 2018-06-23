@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   get '/home' ,to:'static_pages#home'
 
+	get '/fave',to:'static_pages#fave'
+	get '/myfave',to:'static_pages#myfave'
+
   get '/help',to:'static_pages#help'
 
 	get '/about',to:'static_pages#about'

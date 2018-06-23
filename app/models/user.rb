@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 
 	has_many :nazos,dependent: :destroy
+	has_many :likes,dependent: :destroy
 
 	before_save{self.login_id.downcase!}
 	validates:name,presence:true,length:{maximum:50}
@@ -22,13 +23,15 @@ class User < ApplicationRecord
 	end
 
 	def feed
-		Nazo.where("user_id not ?",nil).reorder(:good_num)
-#		Nazo.order('likes.count')
-		#	nazos.all
-		#nazos.all
+		Nazo.where("user_id not ?",nil).reorder(:created_at)
 	end
 
-	def feed_new
-		
+	def feed_fave
+		Nazo.where("user_id not?",nil).reorder(:good_num)
 	end 
+
+	def feed_myfave
+		
+	end
+
 end
