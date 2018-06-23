@@ -31,6 +31,9 @@ class User < ApplicationRecord
 	end 
 
 	def feed_myfave
+#			Nazo.where("user_id IN (?) OR user_id= ?",likes.map(&:nazo_id),id)
+	#		Nazo.where("id IN ?",likes.map(&:id))
+			Nazo.where("id IN (?)",likes.map(&:nazo_id))
 		
 	end
 

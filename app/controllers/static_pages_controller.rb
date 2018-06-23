@@ -17,8 +17,9 @@ class StaticPagesController < ApplicationController
 	def myfave
 		if logged_in?
 			@nazo=current_user.nazos.build
-			@feed_items=(current_user).paginate(page: params[:page])
-			#@feed_imtes=[]
+			@feed_items=current_user.feed_myfave.paginate(page: params[:page])
+		#	@feed_items=[]
+		#	@feed_items=[] if @feed_items.nil?
 		end
 		render 'home'
 	end	
