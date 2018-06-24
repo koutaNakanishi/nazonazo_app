@@ -16,11 +16,11 @@
 
 
 	<span class="content"><%=nazo.content %></span>
-	<span id="like-of-<%= nazo.id %>"><%=render partial: 'likes/like',locals: {nazo: nazo,likes: @likes}%></span>  
 
-
-	<span class="content"><%=link_to "このなぞなぞに挑戦!!",'#',class:"btn btn-primary"%></span>
-	<span class="content"><%=nazo.created_at%></span>
+	<table> 
+		<td><span id="like-of-<%= nazo.id %>"><%=render partial: 'likes/like',locals: {nazo: nazo,likes: @likes}%></span> </td>
+		<td><span class="content"><%=link_to "このなぞなぞに挑戦!!",'#',class:"btn btn-primary"%></span> </td>
+	</table>
 
 	<span class="timestamp">
 		<%=time_ago_in_words(nazo.created_at)%>に投稿

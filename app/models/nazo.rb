@@ -12,7 +12,7 @@ class Nazo < ApplicationRecord
 	validates :user_id,presence:true
 	validates :content,presence:true,length:{maximum: 200}
 	validates :answer,presence:true
-	validates :difficulty,presence:true
+	validates :difficulty,presence:true,numericality:{only_integer: true,greater_than: 0,less_than: 11}
 
 
 end

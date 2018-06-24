@@ -23,7 +23,7 @@ class User < ApplicationRecord
 	end
 
 	def feed
-		Nazo.where("user_id not ?",nil).reorder(:created_at)
+		Nazo.where("user_id not ?",nil).reorder("created_at DESC")
 	end
 
 	def feed_fave
