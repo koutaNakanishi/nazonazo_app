@@ -6,7 +6,7 @@
 				<ul class="nav navbar-nav navbar-right">
 					<li><%= link_to "なぞなぞ投稿",new_nazo_path %></li>
 					<li><%= link_to "ホーム", root_path%></li>
-					<li><%= link_to "マイページ", mypage_path%></li>
+					<li><%= link_to "マイページ",user_path(current_user)%></li>
 					<% if logged_in? %>
 						<li><%= link_to "ユーザ一覧",users_path %> </li>
 						<li class="dropdown">
@@ -14,7 +14,6 @@
 								アカウント<b class="caret"></b>
 							</a>
 								<ul class="dropdown-menu">
-								<li><%= link_to "マイページ",current_user %></li>
 								<li><%= link_to "設定",edit_user_path(current_user) %></li>
 								<li class="divider"></li>
 								<li>

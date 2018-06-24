@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
 	get '/fave',to:'static_pages#fave'
 	get '/myfave',to:'static_pages#myfave'
+	get '/ac',to:'static_pages#ac'
+	get '/wa',to:'static_pages#wa'
 
   get '/help',to:'static_pages#help'
 

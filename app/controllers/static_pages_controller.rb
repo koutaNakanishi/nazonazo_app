@@ -24,6 +24,18 @@ class StaticPagesController < ApplicationController
 		render 'home'
 	end	
 
+	def ac
+			@nazo=current_user.nazos.build
+			@feed_items=current_user.feed_ac.paginate(page: params[:page])
+		render 'home'
+	end
+
+	def wa
+			@nazo=current_user.nazos.build
+			@feed_items=current_user.feed_wa.paginate(page: params[:page])
+		render 'home'
+	end
+
 
   def help
   end

@@ -8,6 +8,8 @@
 					<li class="<%="active" if current_page?(root_path)%>"><%=link_to '新着',root_path%></li>
 					<li class="<%="active" if current_page?(fave_path)%>"><%=link_to '人気順',fave_path %></li>
 					<li class="<%="active" if current_page?(myfave_path)%>"><%=link_to 'お気に入り',myfave_path%></li>
+					<li class="<%="active" if current_page?(ac_path)%>"><%=link_to '正解済み',ac_path%></li>
+					<li class="<%="active" if current_page?(wa_path)%>"><%=link_to '失敗済み',wa_path%></li>
 			</ul>
 		</nav>
 	</h1>

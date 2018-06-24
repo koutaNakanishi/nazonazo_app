@@ -35,7 +35,14 @@ class User < ApplicationRecord
 #			Nazo.where("user_id IN (?) OR user_id= ?",likes.map(&:nazo_id),id)
 	#		Nazo.where("id IN ?",likes.map(&:id))
 			Nazo.where("id IN (?)",likes.map(&:nazo_id))
-		
+	end
+
+	def feed_ac
+			Nazo.where("id IN (?)",(relationships.select{|item| item.ac==true}).map(&:nazo_id))
+	end
+
+	def feed_wa
+			Nazo.where("id IN (?)",(relationships.select{|item| item.ac==false}).map(&:nazo_id))
 	end
 
 end
