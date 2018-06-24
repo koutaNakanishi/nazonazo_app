@@ -35,19 +35,23 @@ class NazosController < ApplicationController
 				#@user=User.find(@nazo.user_id)
 				@correct_ans=@nazo.answer
 
+				###以下回答が来た時の処理
+
 		#		relation=@user.relationships#過去に解いたことがあるか
 				res=current_user.relationships.find_by(nazo_id:@nazo.id)
-#				debugger
+				current_user.update(fighted_num:current_user.fighted_num+1)
 
 				@nazo.update(fight_num:(@nazo.fight_num+1))#挑戦人数を一人追加
 				if @ans.to_s==@corect_ans.to_s then#ac
 
 					if res.nil? then 
 						 current_user.relationships.create(nazo_id: @nazo.id,ac: true) #初挑戦				
-						 @nazo.update(solved_num:@nazo.solved_num+1)#解いた人数を一人追加
+						 @nazo.update(solved_num:@nazo.solved_num+1)#解いた人数を一人追加	
+						 current_user.update(solved_num:current_user.solved_num+1)#userのほうもsolved_numを1追加
 				elsif res.ac==false then #waなら上書き
 							res.update(nazo_id: @nazo.id,ac: true)
 						 @nazo.update(solved_num:@nazo.solved_num+1)#解いた人数を一人追加
+						 current_user.update(solved_num:current_user.solved_num+1)#userのほうもsolved_numを1追加
 					end
 
 				else#WA 

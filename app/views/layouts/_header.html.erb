@@ -4,11 +4,11 @@
 
 			<nav>
 				<ul class="nav navbar-nav navbar-right">
+				<% if logged_in? %>
 					<li><%= link_to "なぞなぞ投稿",new_nazo_path %></li>
 					<li><%= link_to "ホーム", root_path%></li>
 					<li><%= link_to "マイページ",user_path(current_user)%></li>
-					<% if logged_in? %>
-						<li><%= link_to "ユーザ一覧",users_path %> </li>
+						<li><%= link_to "ユーザ一覧",users_path if current_user.admin? %> </li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 								アカウント<b class="caret"></b>
