@@ -20,7 +20,7 @@ users=User.order(:created_at).take(10)
 
 	50.times do
 	content=Faker::Lorem.sentence(4)
-	answer=Faker::HarryPotter.character
+	answer="あいうえお"
 	difficulty=rand(1..5)
 	good_num=rand(0..1000)
 	fight_num=rand(0..500)
