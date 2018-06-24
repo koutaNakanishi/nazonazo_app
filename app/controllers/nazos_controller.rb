@@ -16,10 +16,21 @@ class NazosController < ApplicationController
 	def destroy
 
 	end
+
+	def show
+		@nazo=Nazo.find(params[:id])
+		@user=User.find(@nazo.user_id)
+	end
 	
 	def new 
 		@nazo=current_user.nazos.build if logged_in?
 		render 'new'
+	end
+
+	def getans #showのページから回答を受け取る
+				@ans=params[:form][:ans]
+				@correct_ans=Nazo.find(params[:id]).answer
+				render 'result' #答えをもとに、正解or間違いを表示するページ
 	end
 
 	def nazo_params

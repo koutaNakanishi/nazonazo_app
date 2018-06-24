@@ -25,8 +25,8 @@ Rails.application.routes.draw do
 	delete '/logout',to:'sessions#destroy'
 
 	resources :users
-	resources :nazos, only: [:new,:create, :destroy]
-
+	resources :nazos, only: [:new,:create, :destroy,:show]
+	post '/ans',to:'nazos#getans'
 	resources :nazos do
 		resources :likes, only: [:create, :destroy]
 	end
