@@ -200,11 +200,11 @@ input{
   padding: 0;
   li {
 		margin: 10px 10px; 
-    padding: 10px 0;
+   padding: 10px 0;
     border-top: 1px solid black;
 		border-bottom: 1px solid black;
 		border-right: 1px solid black;
-		border-left: 1px solid black;
+			border-left: 1px solid black;
   }
   .user {
     margin-top: 5em;
@@ -248,5 +248,16 @@ span.picture {
 #like-button{
 	background:#fff0f7;
 }
+
+.ac{
+	background:#6CBB5A;
+}
+
+.wa{
+	background:#FFBD4C;
+}
+
+
+
 
 

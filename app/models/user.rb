@@ -2,6 +2,7 @@ class User < ApplicationRecord
 
 	has_many :nazos,dependent: :destroy
 	has_many :likes,dependent: :destroy
+	has_many :relationships,dependent: :destroy
 
 	before_save{self.login_id.downcase!}
 	validates:name,presence:true,length:{maximum:50}

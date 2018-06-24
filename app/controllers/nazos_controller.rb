@@ -4,6 +4,8 @@ class NazosController < ApplicationController
 		@nazo=current_user.nazos.build(nazo_params)
 #		debugger
 		if @nazo.save
+				#@nazo.update(fight_num:0)
+				#@nazo.update(solved_num:0)
 				flash[:success]="なぞなぞを投稿しました!"
 				redirect_to root_url
 		else 
@@ -29,12 +31,48 @@ class NazosController < ApplicationController
 
 	def getans #showのページから回答を受け取る
 				@ans=params[:form][:ans]
-				@correct_ans=Nazo.find(params[:id]).answer
+				@nazo=Nazo.find(params[:id])
+				#@user=User.find(@nazo.user_id)
+				@correct_ans=@nazo.answer
+
+		#		relation=@user.relationships#過去に解いたことがあるか
+				res=current_user.relationships.find_by(nazo_id:@nazo.id)
+#				debugger
+
+				@nazo.update(fight_num:(@nazo.fight_num+1))#挑戦人数を一人追加
+				if @ans.to_s==@corect_ans.to_s then#ac
+
+					if res.nil? then 
+						 current_user.relationships.create(nazo_id: @nazo.id,ac: true) #初挑戦				
+						 @nazo.update(solved_num:@nazo.solved_num+1)#解いた人数を一人追加
+				elsif res.ac==false then #waなら上書き
+							res.update(nazo_id: @nazo.id,ac: true)
+						 @nazo.update(solved_num:@nazo.solved_num+1)#解いた人数を一人追加
+					end
+
+				else#WA 
+					if res.nil? then
+						 current_user.relationships.create(nazo_id: @nazo.id,ac: false) #初挑戦				
+					end
+				end
+
 				render 'result' #答えをもとに、正解or間違いを表示するページ
 	end
 
+	private 
+
 	def nazo_params
-		params.require(:nazo).permit(:content,:answer,:difficulty)
+		params.require(:nazo).permit(:content,:answer,:difficulty,:fight_num,:solved_num)
 	end
 
+
+
 end
+
+
+
+
+
+
+
+
