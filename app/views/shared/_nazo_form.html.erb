@@ -1,12 +1,18 @@
 <%= form_for(@nazo) do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
 	<div class="field">
+
+		<div class="nazo_content_textbox">
 		<%= f.label:問題文 %>
 		<%= f.text_area :content,placeholder: "問題文を入れてね" %>
+		</div>
 
-		<%=f.label:答えを、ひらがなで入れてね%>
+
+		<div class="nazo_answer_textbox">
+		<%=f.label:ひらがなで入れてね%>
 		<%= f.text_area :answer,placeholder: "答えを「ひらがなで」入れてね"%>
-		
+		</div>
+
 		<%=f.label:"難易度"%>
 		<%=f.number_field :difficulty %>
 	</div>

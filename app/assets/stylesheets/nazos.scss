@@ -1,3 +1,66 @@
 // Place all the styles related to the Nazos controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$gray-medium-light : #eaeaea;
+$mygreen : #91DBB9;
+$myyellow : #F9E3AA;
+$myblue : #97D3E3;
+$mypuple : #CCB3DD;
+$myred : #DB7BB1;
+$myorange : #EDA184;
+
+.nazo_answer_textbox{
+display: inline-block;
+    padding: 0.8em;
+    font-size: 15px;
+    color: #000;
+    border-top: 1px dashed #aaa;
+    border-bottom: 1px dashed #aaa;
+    background: #FBF1A5;
+    box-shadow: 0 5px 4px -4px rgba(0,0,0,0.3) inset;
+    -moz-box-shadow: 0 5px 4px -4px rgba(0,0,0,0.3) inset;
+    -webkit-box-shadow: 0 5px 4px -4px rgba(0,0,0,0.3) inset;
+    -o-box-shadow: 0 5px 4px -4px rgba(0,0,0,0.3) inset;
+    -ms-box-shadow: 0 5px 4px -4px rgba(0,0,0,0.3) inset;
+}
+
+
+.nazo_content_textbox{
+display: inline-block;
+    padding: 0.8em;
+    font-size: 15px;
+    color: #000;
+    border-top: 1px dashed #aaa;
+    border-bottom: 1px dashed #aaa;
+    background: #FBF1A5;
+    box-shadow: 0 5px 4px -4px rgba(0,0,0,0.3) inset;
+    -moz-box-shadow: 0 5px 4px -4px rgba(0,0,0,0.3) inset;
+    -webkit-box-shadow: 0 5px 4px -4px rgba(0,0,0,0.3) inset;
+    -o-box-shadow: 0 5px 4px -4px rgba(0,0,0,0.3) inset;
+    -ms-box-shadow: 0 5px 4px -4px rgba(0,0,0,0.3) inset;
+}
+
+
+.fied_ac{
+    //padding: 0.5em 1em;
+    //margin: 2em 0;
+    //color:green;
+    background: $mygreen;
+   // border-bottom: solid 6px #aac5de;
+}
+
+.fied_wa{
+		//padding: 0.5em 1em;
+    //margin: 2em 0;
+   // color: red;
+    background: $myorange;
+   // border-bottom: solid 6px #aac5de;
+    border-radius: 9px;
+}
+
+
+
+
+
+
