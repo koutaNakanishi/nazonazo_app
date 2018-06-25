@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180624143245) do
+ActiveRecord::Schema.define(version: 20180625165836) do
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
@@ -54,6 +54,7 @@ ActiveRecord::Schema.define(version: 20180624143245) do
     t.integer "solved_num", default: 0
     t.integer "ac_sum", default: 0
     t.integer "like_sum", default: 0
+    t.string "image"
     t.index ["login_id"], name: "index_users_on_login_id", unique: true
   end
 

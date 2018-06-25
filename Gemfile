@@ -23,7 +23,9 @@ gem 'uglifier', '3.2.0'
 gem 'faker', '1.7.3'
 #use jquery########
 gem 'jquery-rails'
-
+#for image upload
+gem 'carrierwave'
+gem 'rmagick'
 
 
 #use bootstarp###

@@ -57,7 +57,7 @@ class UsersController < ApplicationController
 
 	private#ネットワーク経由で実行できない（攻撃される危険性が少ない？）ヘルパー
 		def user_params
-			params.require(:user).permit(:name,:login_id,:password,:password_confirmation)
+			params.require(:user).permit(:name,:login_id,:password,:password_confirmation,:image)
 		end 
 		#beforeアクション
 

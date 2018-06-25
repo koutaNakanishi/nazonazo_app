@@ -11,6 +11,8 @@
 
 				<%=	f.label:"パスワード(もう一度)"%>
 				<%=	f.password_field:password_confirmation,class: 'form-control'%>
+				<%= f.label :image,"アイコン設定"%>
+				<%= f.file_field :image %>
 
 				<%= f.submit yield(:button_text),class:"btn btn-primary" %>
 					
