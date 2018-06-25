@@ -33,9 +33,22 @@
 		<% end %>
 	</table>
 
-	<span class="content">挑戦人数:<%=nazo.fight_num%>人</content>
-	<span class="content">正解した人数:<%=nazo.solved_num%>人</content>
-	<span class="content">正解した人数:<%=nazo.solved_num%>人</content>
+	<span class="content">
+		<table>
+			<td><%=image_tag 'maru.png',size: '48x48'-%></td>
+			<td>・・・</td>
+			<td><%=nazo.solved_num%>人</td>
+		</table>
+		</span>
+			
+	<span class="content">
+		<table>
+			<td><%=image_tag 'batu.png',size: '48x48'-%></td>
+			<td>・・・</td>
+			<td><%=nazo.fight_num-nazo.solved_num%>人</td>
+		</table>
+		</span>
+			
 
 	<span class="timestamp">
 		<%=time_ago_in_words(nazo.created_at)%>に投稿
