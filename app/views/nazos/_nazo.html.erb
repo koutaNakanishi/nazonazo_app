@@ -29,7 +29,7 @@
 	<table> 
 		<% if current_user.id!=nazo.user_id%>
 		<td><span class="content"><%=link_to "このなぞなぞに挑戦!!",nazo_path(id: nazo.id) ,class:"btn btn-primary"%></span> </td>
-		<td><span id="like-of-<%= nazo.id %>"><%=render partial: 'likes/like',locals: {nazo: nazo,likes: @likes}%></span> </td>
+		<td><span id="like-of-<%= nazo.id %>"><%=render partial: 'likes/like',locals: {user:User.find(nazo.user_id),nazo: nazo,likes: @likes}%></span> </td>
 		<% end %>
 	</table>
 

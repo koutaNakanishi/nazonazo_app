@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(version: 20180624143245) do
     t.text "content"
     t.string "answer"
     t.integer "difficulty"
-    t.integer "good_num"
-    t.integer "fight_num"
-    t.integer "solved_num"
+    t.integer "good_num", default: 0
+    t.integer "fight_num", default: 0
+    t.integer "solved_num", default: 0
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

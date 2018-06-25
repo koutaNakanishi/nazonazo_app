@@ -34,6 +34,9 @@ class NazosController < ApplicationController
 				@nazo=Nazo.find(params[:id])
 				#@user=User.find(@nazo.user_id)
 				@correct_ans=@nazo.answer
+				@post_user=User.find(@nazo.user_id)
+
+				#debugger
 
 				###以下回答が来た時の処理
 
@@ -42,16 +45,18 @@ class NazosController < ApplicationController
 				current_user.update(fighted_num:current_user.fighted_num+1)
 
 				@nazo.update(fight_num:(@nazo.fight_num+1))#挑戦人数を一人追加
-				if @ans.to_s==@corect_ans.to_s then#ac
-
+				@post_user.update(fighted_num:@post_user.fighted_num+1)
+				#debugger
+				if @ans.to_s==@correct_ans then#ac
+				#	debugger
 					if res.nil? then 
 						 current_user.relationships.create(nazo_id: @nazo.id,ac: true) #初挑戦				
 						 @nazo.update(solved_num:@nazo.solved_num+1)#解いた人数を一人追加	
-						 current_user.update(solved_num:current_user.solved_num+1)#userのほうもsolved_numを1追加
+						 @post_user.update(solved_num:@post_user.solved_num+1)#userのほうもsolved_numを1追加
 				elsif res.ac==false then #waなら上書き
 							res.update(nazo_id: @nazo.id,ac: true)
 						 @nazo.update(solved_num:@nazo.solved_num+1)#解いた人数を一人追加
-						 current_user.update(solved_num:current_user.solved_num+1)#userのほうもsolved_numを1追加
+						 @post_user.update(solved_num:@post_user.solved_num+1)#userのほうもsolved_numを1追加
 					end
 
 				else#WA 

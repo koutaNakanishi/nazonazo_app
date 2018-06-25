@@ -4,7 +4,7 @@
 
 
 		<%= button_to nazo_like_path(nazo_id: nazo.id,id:nazo.user.id),method: :delete,id: "like-button",remote: true do %>
-			<%=current_user.update(:like_sum,current_user.like_sum-1)%>
+			<%#user.update_attribute(:like_sum,user.like_sum-1)%>
 			<%= image_tag 'hart.png'  %>
 
 			
@@ -19,7 +19,7 @@
 
 		<%= button_to nazo_likes_path(nazo),id: "like-button",remote: true do %>
 		<%=image_tag "hart_empty.png" %>
-			<%=current_user.update(:like_sum,current_user.like_sum+1)%>
+			<%#user.update_attribute(:like_sum,user.like_sum+1)%>
 				<span>
 					<%= nazo.likes.count %>
 
