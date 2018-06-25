@@ -8,8 +8,8 @@
 					<li class="new <%="active" if current_page?(root_path)%>"><%=link_to '新着',root_path%></li>
 					<li class="fave <%="active" if current_page?(fave_path)%>"><%=link_to '人気順',fave_path %></li>
 					<li class="myfave <%="active" if current_page?(myfave_path)%>"><%=link_to 'お気に入り',myfave_path%></li>
-					<li class="ac <%="active" if current_page?(ac_path)%>"><%=link_to '正解',ac_path%></li>
-					<li class="wa <%="active" if current_page?(wa_path)%>"><%=link_to '失敗',wa_path%></li>
+					<li style="display:flex" class="ac <%="active" if current_page?(ac_path)-%>"><%=link_to '成功',ac_path%><%=image_tag 'maru.png',size: '24x24'%></li>
+					<li style="display:flex" class="wa <%="active" if current_page?(wa_path)%>"><%=link_to '失敗',wa_path%><%=image_tag 'batu.png',size:'24x24'%></li>
 			</ul>
 		</nav>
 	</h1>

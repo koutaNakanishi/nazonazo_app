@@ -23,8 +23,8 @@ users=User.order(:created_at).take(10)
 	answer="あいうえお"
 	difficulty=rand(1..5)
 	good_num=rand(0..1000)
-	fight_num=rand(0..500)
-	solved_num=rand(0..500)
+	fight_num=rand(200..500)
+	solved_num=rand(30..150)
 
 	users.each{|user| user.nazos.create!(content:content,answer: answer,difficulty: difficulty,good_num: good_num,fight_num: fight_num,solved_num: solved_num)}
 
