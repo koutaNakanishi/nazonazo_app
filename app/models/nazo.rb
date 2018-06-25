@@ -11,8 +11,9 @@ class Nazo < ApplicationRecord
 	#時間順で並び替え
 	validates :user_id,presence:true
 	validates :content,presence:true,length:{maximum: 200}
-	validates :answer,presence:true
-	validates :difficulty,presence:true
+
+	validates :answer,presence:true,format:{with: /\A(?:\p{Hiragana}|\p{Katakana}|[ー－]|[一-龠々])+\z/}#ひらがなのみ
+	validates :difficulty,presence:true,numericality:{only_integer: true,greater_than: 0,less_than: 11}
 
 
 end

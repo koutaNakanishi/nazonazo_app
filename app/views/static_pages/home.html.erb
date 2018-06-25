@@ -1,13 +1,33 @@
 
-<div class="center jumbotron">
 
 <% if logged_in? %>
 
-	<h1>新着|人気|お気に入り</h1>
+	<h1>
+		<nav class="navbar navbar-inverse ">
+			<ul class="nav navbar-nav">
+					<li class="<%="active" if current_page?(root_path)%>"><%=link_to '新着',root_path%></li>
+					<li class="<%="active" if current_page?(fave_path)%>"><%=link_to '人気順',fave_path %></li>
+					<li class="<%="active" if current_page?(myfave_path)%>"><%=link_to 'お気に入り',myfave_path%></li>
+					<li class="<%="active" if current_page?(ac_path)%>"><%=link_to '正解',ac_path%></li>
+					<li class="<%="active" if current_page?(wa_path)%>"><%=link_to '失敗',wa_path%></li>
+			</ul>
+		</nav>
+	</h1>
+
 	<h2>（ここに、謎一覧を表示したい)</h2>
+
+	<div class="container">	
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<h3>なぞなぞ一覧</h3>
+				<%= render 'shared/feed' %>
+			</div>
+	</div>
+</div>
 
 <% else %>
 
+<div class="center jumbotron">
 	<h1>ようこそ、なぞなぞキングへ!</h1>
 	<h2>
 		皆がふと思い浮かんだなぞなぞを、みんなで解いて遊ぶためのサイトだよ
@@ -16,6 +36,5 @@
 	<%=link_to "まずはアカウントを作ってね!",signup_path,class:"btn btn-lg btn-primary" %>
 </div>
 
-<% end %>
 
-<br>
+<% end %>

@@ -1,4 +1,13 @@
+
+<div  class="<%="ac" if ac?(current_user,nazo)%>">
+
+ <div class="<%="wa" if wa?(current_user,nazo) %>"> 
+
 <li id="nazo-<%=nazo.id %>" >
+
+
+
+
 
 	<%= link_to gravatar_for(nazo.user,size:50),nazo.user %>
 	<span class="user"><%= link_to nazo.user.name, nazo.user %></span>
@@ -16,13 +25,21 @@
 
 
 	<span class="content"><%=nazo.content %></span>
- 	<span id="like-of-<%= nazo.id %>"><%=render partial: 'likes/like',locals: {nazo: nazo,likes: @likes}%></span> 
-	<span class="content"><%=nazo.good_num %></span>
 
+	<table> 
+		<% if current_user.id!=nazo.user_id%>
+		<td><span class="content"><%=link_to "このなぞなぞに挑戦!!",nazo_path(id: nazo.id) ,class:"btn btn-primary"%></span> </td>
+		<td><span id="like-of-<%= nazo.id %>"><%=render partial: 'likes/like',locals: {user:User.find(nazo.user_id),nazo: nazo,likes: @likes}%></span> </td>
+		<% end %>
+	</table>
 
+	<span class="content">挑戦人数:<%=nazo.fight_num%>人</content>
+	<span class="content">正解した人数:<%=nazo.solved_num%>人</content>
 
-	<span class="content"><%=link_to "このなぞなぞに挑戦!!",'#',class:"btn btn-primary"%></span>
 	<span class="timestamp">
 		<%=time_ago_in_words(nazo.created_at)%>に投稿
 	</span>
 </li>
+
+</div>
+</div>
