@@ -2,31 +2,32 @@
 	<%= render 'shared/error_messages', object: f.object %>
 	<div class="field">
 
-		<div class="nazo_content_textbox">
+		<div class="input_textbox_blue">
 		<%= f.label:問題文 %>
 		<%= f.text_area :content,placeholder: "問題文を入れてね" %>
 		</div>
 
 
-		<div class="nazo_answer_textbox">
+		<div class="input_textbox_green">
 		<%=f.label:ひらがなで入れてね%>
 		<%= f.text_area :answer,placeholder: "答えを「ひらがなで」入れてね"%>
 		</div>
 
+			<div class="input_textbox_puple">
+				<%=f.label:"難しさ:"%><span id="value">5</span>
+				<%=f.number_field :difficulty ,id:"range",type:'range',min:1,max:10,step:1%>
+					<script>
+						var elem = document.getElementById('range');
+						var target = document.getElementById('value');
+						 var rangeValue = function (elem, target) {
+					 return function(evt){
+					target.innerHTML = elem.value;
+					}
+				}
+					elem.addEventListener('input', rangeValue(elem, target));
+				</script>
+			</div>
+		</div>
 
-		<%=f.label:"難易度:"%><span id="value">5</span>
-		<%=f.number_field :difficulty ,id:"range",type:'range',min:1,max:10,step:1%>
-			<script>
-			  var elem = document.getElementById('range');
-			  var target = document.getElementById('value');
- 				 var rangeValue = function (elem, target) {
-   		 return function(evt){
-      target.innerHTML = elem.value;
-    	}
-  	}
-  		elem.addEventListener('input', rangeValue(elem, target));
-		</script>
-	</div>
-
-	<%=f.submit "投稿!!",class: "btn btn-primary" %>
+	<%=f.submit "投稿!!",class: "square_btn" %>
 <% end %>

@@ -7,11 +7,12 @@ class ImageUploader < CarrierWave::Uploader::Base
   storage :file
   # storage :fog
 
-	process :resize_to_limit =>[200,200]
+	process :resize_to_limit =>[300,300]
 	process :convert => 'jpg'
 
 	version :thumb do
-		process :resize_to_fill => [40,40,gravity= ::Magick::CenterGravity]
+		process :resize_to_fill => [80,80,gravity= ::Magick::CenterGravity]
+    #process resize_to_fit: [50, 50]
 	end
 
 	def extension_white_list
