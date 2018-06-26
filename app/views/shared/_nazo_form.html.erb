@@ -13,8 +13,20 @@
 		<%= f.text_area :answer,placeholder: "答えを「ひらがなで」入れてね"%>
 		</div>
 
-		<%=f.label:"難易度"%>
-		<%=f.number_field :difficulty %>
+
+		<%=f.label:"難易度:"%><span id="value">5</span>
+		<%=f.number_field :difficulty ,id:"range",type:'range',min:1,max:10,step:1%>
+			<script>
+			  var elem = document.getElementById('range');
+			  var target = document.getElementById('value');
+ 				 var rangeValue = function (elem, target) {
+   		 return function(evt){
+      target.innerHTML = elem.value;
+    	}
+  	}
+  		elem.addEventListener('input', rangeValue(elem, target));
+		</script>
 	</div>
+
 	<%=f.submit "投稿!!",class: "btn btn-primary" %>
 <% end %>
