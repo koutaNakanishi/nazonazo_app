@@ -6,13 +6,18 @@
 			<div class="col-md-6 col-md-offset-3">
 				
 				<%=form_for(:session,url:login_path) do |f| %>
+
+				<div class="input_textbox_green">
 					<%= f.label "ID" %>
 					<%= f.text_field :login_id,class:'form-control' %>
+				</div>
 
+				<div class="input_textbox_blue">
 					<%= f.label :パスワード%>
 					<%= f.password_field :password,class:'form-control' %>
+				</div>
 
-					<%= f.submit "ログイン!!",class:"btn btn-primary" %>
+					<%= f.submit "ログイン!!",class:"square_btn " %>
 			<% end %>
 
 			<p>はじめてですか? <%=link_to "まずは登録!!!",signup_path %> </p>
