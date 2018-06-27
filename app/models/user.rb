@@ -29,7 +29,7 @@ class User < ApplicationRecord
 	end
 
 	def feed_fave
-		Nazo.where("user_id not?",nil).reorder(:good_num)
+		Nazo.where("user_id not?",nil).reorder("good_num DESC")
 	end 
 
 	def feed_myfave

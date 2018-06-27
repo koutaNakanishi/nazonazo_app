@@ -1,6 +1,6 @@
 <% provide(:title,"Edit user") %>
 <% provide(:button_text,'Save changes') %>
-	<h1>Update your profile</h1>
+	<h1>プロフィール変更</h1>
 
 	<!--フォーム用のパーシャルは、app/views/users_form.html.erb -->
 	<div class="container">
@@ -8,9 +8,6 @@
 			<div class="col-md-6 col-md-offset-3">
 				<%= render 'form' %>
 
-			<div class="gravatar_edit">
-				<%=gravatar_for @user %>
-					<a href = "http://gravatar.com/emails"rel="noopener" target="_blank">change</a>
 				</div>
 			</div>
 		</div>
