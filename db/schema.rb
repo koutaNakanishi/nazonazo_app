@@ -10,7 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180619130451) do
+ActiveRecord::Schema.define(version: 20180625165836) do
+
+  create_table "likes", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "nazo_id"
+    t.integer "likes_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "nazos", force: :cascade do |t|
+    t.text "content"
+    t.string "answer"
+    t.integer "difficulty"
+    t.integer "good_num", default: 0
+    t.integer "fight_num", default: 0
+    t.integer "solved_num", default: 0
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "created_at", "good_num"], name: "index_nazos_on_user_id_and_created_at_and_good_num"
+    t.index ["user_id"], name: "index_nazos_on_user_id"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.integer "nazo_id"
+    t.boolean "ac"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["nazo_id"], name: "index_relationships_on_nazo_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -19,6 +50,11 @@ ActiveRecord::Schema.define(version: 20180619130451) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.boolean "admin", default: false
+    t.integer "fighted_num", default: 0
+    t.integer "solved_num", default: 0
+    t.integer "ac_sum", default: 0
+    t.integer "like_sum", default: 0
+    t.string "image"
     t.index ["login_id"], name: "index_users_on_login_id", unique: true
   end
 

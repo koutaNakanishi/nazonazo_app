@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nazo_id: 1
+  ac: false
+
+two:
+  nazo_id: 1
+  ac: false

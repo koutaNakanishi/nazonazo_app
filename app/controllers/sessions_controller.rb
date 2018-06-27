@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 			#ユーザログイン後にユーザ情報のページにリダイレクト
 
 			log_in user
-			redirect_back_or user
+			redirect_back_or "friend",user
 			#redirect_to user_url(user)
 		else 
 			#エラーメッセージの作成

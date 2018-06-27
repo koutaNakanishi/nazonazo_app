@@ -2,9 +2,15 @@
 @import "bootstrap";
 
 $gray-medium-light : #eaeaea;
-
+$mygreen : #91DBB9;
+$myyellow : #F9E3AA;
+$myblue : #97D3E3;
+$mypuple : #CCB3DD;
+$myred : #DB7BB1;
+$myorange : #EDA184;
 body{
 	padding-top: 60px;
+	background: image-url('back2.jpg');
 }
 
 sectoin{
@@ -23,11 +29,16 @@ textarea{
 
 }
 
+.topmenu{
+	#font-color:green;
+}
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
+
 }
 
+	
 h1 {
   font-size: 3em;
   letter-spacing: -2px;
@@ -189,6 +200,89 @@ input{
 		border-bottom:1px solid $gray-lighter;
 	}
 }
+
+.nazos {
+  list-style: none;
+  padding: 0;
+  li {
+		margin: 10px 10px;
+   padding: 10px 0;
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    color:gray;
+    //background: #c6e4ff;
+		border:solid 6px #c6e4ff;
+    border-bottom: solid 6px #aac5de;
+    border-radius: 9px;
+  }
+  .user {
+    margin-top: 5em;
+    padding-top: 0;
+  }
+  .content {
+    display: block;
+    margin-left: 60px;
+		font-size:150%;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+    margin-left: 60px;
+  }
+  .gravatar {
+    float: left;
+    margin-right: 10px;
+    margin-top: 5px;
+  }
+}
+
+aside {
+  textarea {
+    height: 100px;
+    margin-bottom: 5px;
+  }
+}
+
+span.picture {
+  margin-top: 10px;
+  input {
+    border: 0;
+  }
+}
+
+#like-button{
+	background:#fff0f7;
+}
+
+
+
+
+.new{
+	background-color:$myred;	
+	border-right: 3px solid $gray-medium-light;
+}
+.fave{
+	background-color:$myyellow;
+	border-right: 3px solid $gray-medium-light;
+}
+.myfave{
+	background-color:$mypuple;	
+	border-right: 3px solid $gray-medium-light;
+}
+.ac{
+background-color:$mygreen;	
+	border-right: 3px solid $gray-medium-light;
+}
+.wa{
+	background-color:$myorange;	
+}
+
+
+
 
 
 
