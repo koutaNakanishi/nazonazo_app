@@ -22,6 +22,7 @@ class NazosController < ApplicationController
 	def show
 		@nazo=Nazo.find(params[:id])
 		@user=User.find(@nazo.user_id)
+		store_location "replay"
 	end
 	
 	def new 
@@ -35,7 +36,6 @@ class NazosController < ApplicationController
 				#@user=User.find(@nazo.user_id)
 				@correct_ans=@nazo.answer
 				@post_user=User.find(@nazo.user_id)
-
 				#debugger
 
 				###以下回答が来た時の処理
@@ -66,6 +66,16 @@ class NazosController < ApplicationController
 				end
 
 				render 'result' #答えをもとに、正解or間違いを表示するページ
+	end
+
+	def replay
+		#debugger
+		redirect_back_or "replay",home_path
+	end
+
+	def nazo_index
+		#debugger
+		redirect_back_or "nazo_index",home_path
 	end
 
 	private 

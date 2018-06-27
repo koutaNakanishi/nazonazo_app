@@ -16,8 +16,11 @@
 	<div class="container">	
 		<div class="row">
 			<div class="col-md-8 col-md-offset-3">
-					<%=button_tag  "もう一度挑戦する",class:"square_btn" %>
-					<%=button_tag  "なぞなぞ一覧へ",class:"square_btn" %>
+					<%#=button_to  "もう一度挑戦する",action:"replay",class:"square_btn",method:"post" %>
+					<%#=button_to  "なぞなぞ一覧へ",action:"nazo_index",class:"square_btn",method:"post" %>
+					<%=button_to "もう一度！！",replay_path,class:"square_btn",method: :get %>
+					<%=button_to "なぞなぞ一覧へ",nazo_index_path,class:"square_btn",method: :get %>
+					<%#=getをつかって　コントローラを呼び出しすぐにリダイレクトさせる %>
 			</div>
 		</div>
 	</div>		

@@ -26,6 +26,9 @@ Rails.application.routes.draw do
 	post '/login',to:'sessions#create'
 	delete '/logout',to:'sessions#destroy'
 
+	get '/replay', to:'nazos#replay'
+	get '/nazo_index', to:'nazos#nazo_index'
+
 	resources :users
 	resources :nazos, only: [:new,:create, :destroy,:show]
 	post '/ans',to:'nazos#getans'
