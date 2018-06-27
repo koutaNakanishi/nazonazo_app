@@ -1,1 +1,2 @@
 $("#like-of-<%=@nazo.id %>").html("<%= j(render partial: 'like', locals: { nazo: @nazo}) %>")
+<%=@nazo.user.update(like_sum:(@nazo.user.like_sum-1)) %>
