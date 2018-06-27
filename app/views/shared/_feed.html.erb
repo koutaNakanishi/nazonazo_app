@@ -1,4 +1,4 @@
-<% if @feed_items.any? %>
+<% if @feed_items.nil? %>
 	<ol class="nazos">
 		<%= render @feed_items %>
 	</ol>
