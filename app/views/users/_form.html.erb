@@ -1,18 +1,33 @@
 			<%=form_for(@user) do |f| %>
 				<%= render 'shared/error_messages',object: f.object %>
+				
+				<div class="input_textbox_green">
 				<%=	f.label:おなまえ %>
 				<%=	f.text_field :name,class: 'form-control'%>
+				</div>
 
+	
+				<div class="input_textbox_green">
 				<%=	f.label:ID%>
 				<%=	f.text_field :login_id,class: 'form-control'%>
+				</div>
 
+				<div class="input_textbox_blue">
 				<%=	f.label:パスワード%>
 				<%=	f.password_field:password,class: 'form-control'%>
+				</div>
 
+				<div class="input_textbox_blue">
 				<%=	f.label:"パスワード(もう一度)"%>
 				<%=	f.password_field:password_confirmation,class: 'form-control'%>
+				</div>
 
-				<%= f.submit yield(:button_text),class:"btn btn-primary" %>
+				<div class="input_textbox_yellow">
+				<%= f.label :image,"アイコン設定"%>
+				<%= f.file_field :image %>
+				</div>
+
+				<%= f.submit yield(:button_text),class:"square_btn" %>
 					
 			<% end %>
 

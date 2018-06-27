@@ -3,13 +3,13 @@
 <% if logged_in? %>
 
 	<h1>
-		<nav class="navbar navbar-inverse ">
+		<nav class="navbar">
 			<ul class="nav navbar-nav">
-					<li class="<%="active" if current_page?(root_path)%>"><%=link_to '新着',root_path%></li>
-					<li class="<%="active" if current_page?(fave_path)%>"><%=link_to '人気順',fave_path %></li>
-					<li class="<%="active" if current_page?(myfave_path)%>"><%=link_to 'お気に入り',myfave_path%></li>
-					<li class="<%="active" if current_page?(ac_path)%>"><%=link_to '正解',ac_path%></li>
-					<li class="<%="active" if current_page?(wa_path)%>"><%=link_to '失敗',wa_path%></li>
+					<li class="new <%="active" if current_page?(root_path)%>"><%=link_to '新着',root_path%></li>
+					<li class="fave <%="active" if current_page?(fave_path)%>"><%=link_to '人気順',fave_path %></li>
+					<li class="myfave <%="active" if current_page?(myfave_path)%>"><%=link_to 'お気に入り',myfave_path%></li>
+					<li style="display:flex" class="ac <%="active" if current_page?(ac_path)-%>"><%=link_to '成功',ac_path%><%=image_tag 'maru.png',size: '24x24'%></li>
+					<li style="display:flex" class="wa <%="active" if current_page?(wa_path)%>"><%=link_to '失敗',wa_path%><%=image_tag 'batu.png',size:'24x24'%></li>
 			</ul>
 		</nav>
 	</h1>
@@ -30,10 +30,11 @@
 <div class="center jumbotron">
 	<h1>ようこそ、なぞなぞキングへ!</h1>
 	<h2>
-		皆がふと思い浮かんだなぞなぞを、みんなで解いて遊ぶためのサイトだよ
+		なぞなぞを投稿して、みんなで遊ぼう!
 	</h2>
 
-	<%=link_to "まずはアカウントを作ってね!",signup_path,class:"btn btn-lg btn-primary" %>
+	<p><%=link_to "まずはアカウントを作ってね!",signup_path,class:"square_btn" %><br>
+	<%=link_to "または、ログインしてね!",login_path%></p>
 </div>
 
 

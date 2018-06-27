@@ -1,9 +1,26 @@
 あなたの回答は<%= @ans %>
 
 <%if @ans==@correct_ans %>
+<h1>	
 	正解です！！
+	<%=image_tag 'ac.png' %>
+</h1>
 
 <% else %>
-	間違いです!!
-
+<h1>
+	間違いです！！
+	<%=image_tag 'wa.png' %>
+</h1>
 <% end %>
+
+	<div class="container">	
+		<div class="row">
+			<div class="col-md-8 col-md-offset-3">
+					<%=button_tag  "もう一度挑戦する",class:"square_btn" %>
+					<%=button_tag  "なぞなぞ一覧へ",class:"square_btn" %>
+			</div>
+		</div>
+	</div>		
+
+
+

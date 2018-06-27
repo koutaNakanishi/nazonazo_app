@@ -13,6 +13,8 @@ class UsersController < ApplicationController
 	#	@user=User.new(params[:user])丸々paramsのhashを渡すのは良くない
 		@user=User.new(user_params)
 		if@user.save
+		#	debugger
+
 			log_in @user
 			flash[:success]="Welcome to the Sample App! 登録完了"
 			#初めは登録完了ページを出したい
@@ -57,7 +59,7 @@ class UsersController < ApplicationController
 
 	private#ネットワーク経由で実行できない（攻撃される危険性が少ない？）ヘルパー
 		def user_params
-			params.require(:user).permit(:name,:login_id,:password,:password_confirmation)
+			params.require(:user).permit(:name,:login_id,:password,:password_confirmation,:image)
 		end 
 		#beforeアクション
 

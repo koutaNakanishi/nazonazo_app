@@ -1,0 +1,59 @@
+$gray-medium-light : #eaeaea;
+$mygreen : #91DBB9;
+$myyellow : #F9E3AA;
+$myblue : #97D3E3;
+$mypuple : #CCB3DD;
+$myred : #DB7BB1;
+$myorange : #EDA184;
+
+@mixin hoge($color: #fff){
+    padding: 0.2em 0.5em;
+    margin: 2em 0;
+    background: $color;
+    box-shadow: 0px 0px 0px 10px $color;
+    border: dashed 2px white;
+}
+
+.input_textbox_blue{
+	@include hoge($myblue);
+}
+
+
+.input_textbox_orange{
+	@include hoge($myorange);
+}
+
+.input_textbox_green{
+	@include hoge($mygreen);
+}
+
+
+.input_textbox_yellow{
+	@include hoge($myyellow);
+}
+
+.input_textbox_puple{
+	@include hoge($mypuple);
+}
+
+.problem{
+	//	margin: 10px 10px 15px 10px;
+	font-size:20px;
+    background: $myblue;
+		line-height: 0px;
+   // box-shadow: 0px 0px 0px 10px $myblue;
+   //border: dashed 2px white;
+
+}
+
+.square_btn{
+ display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border-radius: 3px;
+    font-weight: bold;
+    color: #FFF;
+    background-image: -webkit-linear-gradient(45deg, #709dff 0%, #b0c9ff 100%);
+    background-image: linear-gradient(45deg, #709dff 0%, #b0c9ff 100%);
+    transition: .4s;
+}
