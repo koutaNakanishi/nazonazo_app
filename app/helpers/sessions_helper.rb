@@ -22,13 +22,13 @@ module SessionsHelper
 		user==current_user
 	end
 
-	def redirect_back_or(default)
-		redirect_to(session[:fowarding_url] || default)
-		session.delete(:forwarding_url)
+	def redirect_back_or tmp,default
+		redirect_to(session[tmp] || default)
+		session.delete(tmp)
 	end
 
-	def store_location
-		session[:fowarding_url]=request.original_url if request.get?
+	def store_location tmp
+		session[tmp]=request.original_url if request.get?
 #		debugger
 	end
 

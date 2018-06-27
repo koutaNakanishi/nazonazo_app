@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
 		def	logged_in_user
 			unless logged_in?
-				store_location#getでアクセスしようとしたアドレスを記憶
+				store_location("friend")#getでアクセスしようとしたアドレスを記憶(FF)
 #				debugger
 				flash[:danger]="まずはログインしてね"
 				redirect_to login_url
