@@ -46,7 +46,7 @@
 	<table border="0"> 
 		<% if current_user.id!=nazo.user_id%>
 		<td><span id="like-of-<%= nazo.id %>"><%=render partial: 'likes/like',locals: {user:User.find(nazo.user_id),nazo: nazo,likes: @likes}%></span> </td>
-		<td><span class="content"><%=link_to "このなぞなぞに挑戦!!",nazo_path(id: nazo.id) ,class:"btn btn-primary"%></span> </td>
+		<td><span class="content"><%=link_to "このなぞなぞに挑戦!!",nazo_path(id: nazo.id) ,class:"square_btn"%></span> </td>
 		<% end %>
 	</table>
 

@@ -6,8 +6,8 @@
 	<aside class="col-md-4">
 		<section class="user_info">
 			<h1>
-				<%= gravatar_for @user,{size:90} %>
-				投稿者:<%= @user.name %><br>
+				<%= gravatar_for @user %>
+				投稿者:<%=link_to @user.name, @user %><br>
 			</h1>
 		</section>
 	</aside>
@@ -16,10 +16,15 @@
 <div class="row">
 	<div class="container">
 		<div class="col-md-6 ">
-			問題: <%= @nazo.content %>
-				<%= form_tag(ans_path(id:@nazo.id),method: :post) do%>
-					<div><%= text_field :form,:ans%></div>
-					<%= submit_tag "答える"%>
+			<span class="problem" style="justify">	問題: <%= @nazo.content %></span>
+				<%= form_tag(ans_path(id:@nazo.id),method: :post) do |f|%>
+					
+					<div class="input_textbox_blue">
+						答えを入れてね
+						<%= text_field :form,:ans%>
+					</div>
+
+					<%= submit_tag "答える",class:"square_btn" %>
 				<% end %>
 		</div>
 	</div>
