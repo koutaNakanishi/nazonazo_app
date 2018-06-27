@@ -14,13 +14,19 @@
 		</nav>
 	</h1>
 
-	<h2>（ここに、謎一覧を表示したい)</h2>
 
 	<div class="container">	
 		<div class="row">
 			<div class="col-md-6 col-md-offset-3">
-				<h3>なぞなぞ一覧</h3>
-				<%= render 'shared/feed' %>
+				<h3>
+					なぞなぞ一覧(
+	 			 <%="新着" if current_page?(root_path)%>
+			   <%="人気順" if current_page?(fave_path) %>
+	 		   <%="お気に入り" if current_page?(myfave_path) %>
+				 <%="成功" if current_page?(ac_path) %>
+				 <%="失敗" if current_page?(wa_path) %>
+				 )
+				<div class="nazos"><%=	render 'shared/feed'%></div>
 			</div>
 	</div>
 </div>

@@ -6,9 +6,9 @@ class User < ApplicationRecord
 	mount_uploader :image, ImageUploader
 	
 	before_save{self.login_id.downcase!}
-	validates:name,presence:true,length:{maximum:50}
+	validates:name,presence:true,length:{maximum:20}
 	VALID_EMAIL_REGEX = /\A[a-zA-Z0-9_]+\z/
-	validates:login_id,presence:true,length:{maximum:255},uniqueness: true,format:{with: VALID_EMAIL_REGEX}
+	validates:login_id,presence:true,length:{maximum:30},uniqueness: true,format:{with: VALID_EMAIL_REGEX}
 	#メアドはいらないのん	
 
 	

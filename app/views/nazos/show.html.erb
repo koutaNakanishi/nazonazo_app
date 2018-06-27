@@ -16,12 +16,12 @@
 <div class="row">
 	<div class="container">
 		<div class="col-md-6 ">
-			<span class="problem" style="justify">	問題: <%= @nazo.content %></span>
+			<span class="problem" style="justify">	<%= @nazo.content %></span>
 				<%= form_tag(ans_path(id:@nazo.id),method: :post) do |f|%>
 					
 					<div class="input_textbox_blue">
 						答えを入れてね
-						<%= text_field :form,:ans%>
+						<%= text_field :form,:ans,maxlength:100%>
 					</div>
 
 					<%= submit_tag "答える",class:"square_btn" %>

@@ -1,26 +1,22 @@
 
 <% provide(:title,@user.name) %>
 <h1>
-マイプロフィール
+<%=@user.name%>のプロフィール
 </h1>
 
 <div class="row">
 	<div class="container">
 	<aside class="col-md-4">
 		<section class="user_info">
-			<h1>
+			<div class="profile">
 				<%= gravatar_for @user,{size:90} %>
 				おなまえ:<%= @user.name %><br>
 				ID:<%=@user.login_id %><br>
 				投稿したなぞなぞ:<%= @user.nazos.count %>個<br>
-          おなまえ:<%= @user.name %><br>
-          ID:<%=@user.login_id %><br>
-          投稿したなぞなぞ:<%= @user.nazos.count %>個<br>
-          遊ばれた合計回数:<%= @user.fighted_num%>回<br>
-          解かれた合計回数:<%=@user.solved_num%>回<br>
+          遊ばれた回数:<%= @user.fighted_num%>回<br>
           解いたなぞ:<%=@user.ac_sum%>問<br>
 						もらったハート<%=@user.like_sum%>個<br>
-			</h1>
+			</div>
 		</section>
 	</aside>
 
